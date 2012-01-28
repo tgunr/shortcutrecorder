@@ -13,9 +13,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "342E0208109CCE71009AD8CA"
-               BuildableName = "Build ShortcutRecorder.framework"
-               BlueprintName = "Build ShortcutRecorder.framework"
+               BlueprintIdentifier = "342E00EB109CCC36009AD8CA"
+               BuildableName = "ShortcutRecorder.framework"
+               BlueprintName = "ShortcutRecorder.framework"
                ReferencedContainer = "container:ShortcutRecorder.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
