@@ -974,14 +974,21 @@
 
 - (void)setKeyCombo:(KeyCombo)aKeyCombo
 {
-	keyCombo = aKeyCombo;
+    BOOL didChange = NO;
+	if (keyCombo.code != aKeyCombo.code ||
+        keyCombo.flags != aKeyCombo.flags) {
+        didChange = YES;
+    }
+    keyCombo = aKeyCombo;
 	keyCombo.flags = [self _filteredCocoaFlags: aKeyCombo.flags];
 	
 	hasKeyChars = NO;
 
-	// Notify delegate
-	if (delegate != nil && [delegate respondsToSelector: @selector(shortcutRecorderCell:keyComboDidChange:)])
-		[delegate shortcutRecorderCell:self keyComboDidChange:keyCombo];
+	// Notify delegate?
+    if (didChange) {
+        if (delegate != nil && [delegate respondsToSelector: @selector(shortcutRecorderCell:keyComboDidChange:)])
+            [delegate shortcutRecorderCell:self keyComboDidChange:keyCombo];
+    }
 	
 	// Save if needed
 	[self _saveKeyCombo];
