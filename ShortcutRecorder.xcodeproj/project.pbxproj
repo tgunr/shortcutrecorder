@@ -886,6 +886,7 @@
 		342E0102109CCC36009AD8CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -905,12 +906,14 @@
 					AppKit,
 				);
 				PRODUCT_NAME = ShortcutRecorder;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		342E0103109CCC36009AD8CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -929,6 +932,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = ShortcutRecorder;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
