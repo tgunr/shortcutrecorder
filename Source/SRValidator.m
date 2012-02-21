@@ -75,7 +75,7 @@
 	if ( err != noErr ) return YES;
 
 	// Not copying the array like this results in a leak on according to the Leaks Instrument
-	NSArray *globalHotKeys = [NSArray arrayWithArray:(NSArray *)tempArray];
+	NSArray *globalHotKeys = [NSArray arrayWithArray:(__bridge NSArray *)tempArray];
 
 	if ( tempArray ) CFRelease(tempArray);
 	
@@ -95,7 +95,7 @@
 	while (( globalHotKeyInfoDictionary = [globalHotKeysEnumerator nextObject] ))
 	{
 		// Only check if global hotkey is enabled
-		if ( (CFBooleanRef)[globalHotKeyInfoDictionary objectForKey:(NSString *)kHISymbolicHotKeyEnabled] != kCFBooleanTrue )
+		if ( (__bridge CFBooleanRef)[globalHotKeyInfoDictionary objectForKey:(NSString *)kHISymbolicHotKeyEnabled] != kCFBooleanTrue )
             continue;
 		
         globalCommandMod    = NO;
@@ -105,7 +105,7 @@
         
         globalHotKeyCharCode = [(NSNumber *)[globalHotKeyInfoDictionary objectForKey:(NSString *)kHISymbolicHotKeyCode] shortValue];
         
-        CFNumberGetValue((CFNumberRef)[globalHotKeyInfoDictionary objectForKey: (NSString *)kHISymbolicHotKeyModifiers],kCFNumberSInt32Type,&globalHotKeyFlags);
+        CFNumberGetValue((__bridge CFNumberRef)[globalHotKeyInfoDictionary objectForKey: (NSString *)kHISymbolicHotKeyModifiers],kCFNumberSInt32Type,&globalHotKeyFlags);
         
         if ( globalHotKeyFlags & cmdKey )        globalCommandMod = YES;
         if ( globalHotKeyFlags & optionKey )     globalOptionMod = YES;
